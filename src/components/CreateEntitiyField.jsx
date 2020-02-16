@@ -3,8 +3,7 @@ import Select from 'react-select'
 
 export const CreateEntityField = ({ onChange }) => {
 
-  const [ selectedPirmative, setSelectedPrimative ] = React.useState('box')
-
+  const [state, setState] = React.useState({});
 
   const options = [
     { value: 'sphere', label: 'Sphere' },
@@ -14,18 +13,46 @@ export const CreateEntityField = ({ onChange }) => {
     { value: 'sky', label: 'Sky' },
   ]
 
+  const updateState = (s) => {
+    const newState = {
+      ...state,
+      ...s,
+    };
+    setState(newState);
+    onChange(newState);
+  }
+
   return (
     <div className="create-entity-field">
       <div className="create-entity-field__type">
-        <Select
-          value={selectedPirmative}
-          onChange={value => setSelectedPrimative(value)}
-          options={options}
-        />
+
+        {/* <div>{JSON.stringify(state)}</div> */}
+
+        <div className="select">
+          <Select
+            value={state.type}
+            onChange={value => updateState({ type: value.value })}
+            options={options}
+          />
+        </div>
+
+
       </div>
-      <div className="create-entity-field__editor">
+      {state.type === 'sphere' && <div className="create-entity-field__editor">
+        <textarea className="create-entity-field__editor-textarea" onChange={(event) => updateState({ radius: event.target.value })}></textarea>
+      </div>}
+
+      {state.type === 'circle' && <div className=""> here
+
+      </div>}
+
+      {state.type === 'box' && <div className="create-entity-field__editor">
         <textarea className="create-entity-field__editor-textarea"></textarea>
-      </div>
+      </div>}
+
+      {/* <div className="create-entity-field__editor">
+        <textarea className="create-entity-field__editor-textarea"></textarea>
+      </div> */}
     </div>
   )
 }

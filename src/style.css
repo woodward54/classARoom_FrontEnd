@@ -29,9 +29,18 @@
   display: grid;
   grid-template-columns: 200px 1fr;
 }
-.create-entity-field__editor {}
+.create-entity-field__editor {
+
+  /*grid-template-columns: 200px 1fr;*/
+  padding: 8px;
+}
+
 .create-entity-field__editor-textarea {
   color: white;
   background: #434343;
   padding: 8px;
+}
+
+.select {
+  padding: 10px;
 }
