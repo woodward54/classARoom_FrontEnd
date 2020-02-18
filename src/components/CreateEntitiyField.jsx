@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { Component } from "react";
 import Select from 'react-select'
-import { ColorPicker } from './ColorPicker'
-
-
+//import { ColorPicker } from './ColorPicker'
+import ReactDOM from "react-dom";
+import ColorPicker from "react-color-picker-text";
+import "./styles.css";
 
 
 const onChange = (state) => {
@@ -25,6 +26,21 @@ export const CreateEntityField = () => {
     { value: 'cone', label: 'Cone' },
   ]
 
+  // change the default design of the color picker
+  const styles = {
+    title: "Color Picker",
+    labelStyle: {
+      paddingBottom: "7px",
+      fontSize: "11px"
+    },
+    colorTextBoxStyle: {
+      height: "35px",
+      border: "none",
+      borderBottom: "1px solid lightgray",
+      paddingLeft: "35px"
+    }
+  }
+
   // pickup here - add all colors in one dropdown
 
   const updateState = (s) => {
@@ -36,12 +52,25 @@ export const CreateEntityField = () => {
     onChange(newState);
   }
 
+  const onColorPickerInfoChange = color => {
+    console.log("Main Color Change", color);
+  }
+
   return (
     <div className="create-entity-field">
       <div className="create-entity-field__type">
 
         {/* <div>{JSON.stringify(state)}</div> */}
-        <ColorPicker />
+        <div className="color-picker-palette">
+          <ColorPicker
+            onColorChange={this.onColorPickerInfoChange}
+            title={styles.title}
+            labelStyle={styles.labelStyle}
+            colorTextBoxStyle={styles.colorTextBoxStyle}
+            pickerType={"Chrome"}
+          />
+        </div>
+        
 
         <div className="select">
           <Select
