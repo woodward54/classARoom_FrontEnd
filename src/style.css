@@ -25,9 +25,11 @@
 }
 
 .create-entity-field {
-  height: 200px;
+  height: 100px;
+  /* display: grid; */
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 200px 400px 1fr 100px;
+  align-items: center;
 }
 .create-entity-field__editor {
 
@@ -43,4 +45,34 @@
 
 .select {
   padding: 10px;
+}
+
+.wrapper-1-param {
+  display: grid;
+  grid-template-columns: 180px 180px;
+  grid-gap: 5px;
+  align-items: center;
+}
+
+.wrapper-2-param {
+  display: grid;
+  grid-template-columns: 180px 180px;
+  /* grid-template-rows: 1fr 1fr; */
+  align-items: center;
+}
+
+.row1 {
+  grid-row: 1;
+}
+
+.row2 {
+  grid-row: 2;
+}
+
+.col2 {
+  grid-column: 2;
+}
+
+.center-col {
+  display: flex;
 }

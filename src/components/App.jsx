@@ -1,6 +1,15 @@
 import React from 'react'
 import { CreateEntityField } from './CreateEntitiyField'
 
+const removeComponent = (setComponents, component, index) => {
+  const newComponents = Object.assign([], components);
+  newComponents.splice(index, 1);
+  console.log(index);
+  console.log(component);
+  setComponents(newComponents);
+}
+
+
 export const App = (props) => {
 
   const message = "asdfasdf";
@@ -14,15 +23,14 @@ export const App = (props) => {
       <main className="app__main">
         {components.map((component, i) => {
           return [
-            <CreateEntityField onChange={state => {
-              const newComponents = Object.assign([], components);
-              newComponents.splice(i, 1, state);
-              setComponents(newComponents);
-            }} />,
-            <button onClick={() => {
-              const newComponents = Object.assign([], components);
-              newComponents.splice(i, 1);
-              setComponents(newComponents)
+            <CreateEntityField id={i} />,
+            <button id={i} onClick={() => {
+              console.log(this.id)
+              //delete
+              // const newComponents = Object.assign([], components);
+              // newComponents.splice(i, 1);
+              // setComponents(newComponents);
+
             }}>X</button>
           ]
           })}
