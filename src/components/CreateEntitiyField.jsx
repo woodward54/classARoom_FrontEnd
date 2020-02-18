@@ -1,5 +1,9 @@
 import React from 'react'
 import Select from 'react-select'
+import { ColorPicker } from './ColorPicker'
+
+
+
 
 const onChange = (state) => {
   state => {
@@ -22,13 +26,6 @@ export const CreateEntityField = () => {
   ]
 
   // pickup here - add all colors in one dropdown
-  const colors = [
-    { value: 'red', label: 'Sphere' },
-    { value: 'cylinder', label: 'Cylinder' },
-    { value: 'box', label: 'Box' },
-    { value: 'plane', label: 'Plane' },
-    { value: 'cone', label: 'Cone' },
-  ]
 
   const updateState = (s) => {
     const newState = {
@@ -96,6 +93,8 @@ export const CreateEntityField = () => {
       <div className="create-entity-field__editor">
         <textarea className="create-entity-field__editor-textarea"></textarea>
       </div>
+
+      <ColorPicker />
     </div>
   )
 }
