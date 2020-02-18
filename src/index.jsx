@@ -5,8 +5,7 @@ import { App } from './components/App'
 
 const Entrypoint = () => {
   return (
-    
-    <App name="hello" />
+    <App />
   )
 }
 

@@ -14,7 +14,6 @@ const removeComponent = (setComponents, component, index) => {
 
 export const App = (props) => {
 
-  const message = "asdfasdf";
   const [components, setComponents] = React.useState([]);
 
   return (

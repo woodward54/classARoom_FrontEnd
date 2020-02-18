@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { useInput } from './hooks/input-hook';
 import Select from 'react-select'
 import reactCSS from 'reactcss'
 import ColorPicker from './ColorPicker'
@@ -15,6 +16,9 @@ const onChange = (state) => {
 export const CreateEntityField = () => {
 
   const [state, setState] = React.useState({});
+
+  const { value:boxWidth, bind:bindBoxWidth } = useInput('');
+  const { value:textArea, bind:bindTextArea } = useInput('');
 
   const options = [
     { value: 'sphere', label: 'Sphere' },
@@ -34,6 +38,16 @@ export const CreateEntityField = () => {
     setState(newState);
     onChange(newState);
   }
+
+  const handleChange = (event) => {
+    evt.preventDefault();
+    console.log(`Submitting Name ${boxWidth} ${textArea}`);
+  }
+
+  // const handleChange = (event) => {
+  //   setState({value: event.target.value});
+  //   console.log(event.target.value)
+  // }
 
   return (
     <div className="create-entity-field">
@@ -84,7 +98,7 @@ export const CreateEntityField = () => {
             <div className="center-col, row2, col2"><input type="text"/></div>
 
             <div className="center-col, row3">Width: </div>
-            <div className="center-col, row3, col2"><input type="text"/></div>
+            <div className="center-col, row3, col2"><input type="text" onChange={handleChange} {...bindBoxWidth}/></div>
 
           {/* <input type="text" value={state.value} onChange= /> */}
         </div>
@@ -92,7 +106,11 @@ export const CreateEntityField = () => {
       </div>}
 
       <div className="create-entity-field__editor">
-        <textarea className="create-entity-field__editor-textarea"></textarea>
+        <textarea 
+        className="create-entity-field__editor-textarea"
+        onChange={handleChange} 
+        {...bindTextArea}
+        />
       </div>
 
       
