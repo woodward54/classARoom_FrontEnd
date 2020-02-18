@@ -1,4 +1,3 @@
-
 'use strict'
 
 import React from 'react'
@@ -6,25 +5,29 @@ import reactCSS from 'reactcss'
 import { SketchPicker } from 'react-color'
 
 class ColorPicker extends React.Component {
-  state = {
-    displayColorPicker: false,
-    color: {
-      r: '241',
-      g: '112',
-      b: '19',
-      a: '1',
-    },
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      displayColorPicker: false,
+      color: {
+        r: '241',
+        g: '112',
+        b: '19',
+        a: '1',
+      },
+    };
   };
 
-  handleClick = () => {
+  handleClick () {
     this.setState({ displayColorPicker: !this.state.displayColorPicker })
   };
 
-  handleClose = () => {
+  handleClose () {
     this.setState({ displayColorPicker: false })
   };
 
-  handleChange = (color) => {
+  handleChange(color) {
     this.setState({ color: color.rgb })
   };
 
@@ -62,12 +65,12 @@ class ColorPicker extends React.Component {
 
     return (
       <div>
-        <div style={ styles.swatch } onClick={ this.handleClick }>
+        <div style={ styles.swatch } onClick={ this.handleClick.bind(this) }>
           <div style={ styles.color } />
         </div>
         { this.state.displayColorPicker ? <div style={ styles.popover }>
-          <div style={ styles.cover } onClick={ this.handleClose }/>
-          <SketchPicker color={ this.state.color } onChange={ this.handleChange } />
+          <div style={ styles.cover } onClick={ this.handleClose.bind(this) }/>
+          <SketchPicker color={ this.state.color } onChange={ this.handleChange.bind(this) } />
         </div> : null }
 
       </div>
@@ -75,4 +78,4 @@ class ColorPicker extends React.Component {
   }
 }
 
-export default ColorPicker
+export default ColorPicker;
