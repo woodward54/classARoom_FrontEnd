@@ -1,4 +1,3 @@
-
 'use strict'
 
 import React from 'react'
@@ -6,27 +5,30 @@ import reactCSS from 'reactcss'
 import { SketchPicker } from 'react-color'
 
 class ColorPicker extends React.Component {
-  state = {
-    displayColorPicker: false,
-    color: {
-      r: '241',
-      g: '112',
-      b: '19',
-      a: '1',
-    },
-  };
 
-  handleClick = () => {
+  constructor() {
+    this.state = {
+      displayColorPicker: false,
+      color: {
+        r: '241',
+        g: '112',
+        b: '19',
+        a: '1',
+      }
+    }
+  }
+
+  handleClick() {
     this.setState({ displayColorPicker: !this.state.displayColorPicker })
-  };
+  }
 
-  handleClose = () => {
+  handleClose() {
     this.setState({ displayColorPicker: false })
   };
 
-  handleChange = (color) => {
+  handleChange(color) {
     this.setState({ color: color.rgb })
-  };
+  }
 
   render() {
 

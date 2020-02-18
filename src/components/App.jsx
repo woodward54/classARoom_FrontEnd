@@ -23,13 +23,14 @@ export const App = (props) => {
       <main className="app__main">
         {components.map((component, i) => {
           return [
-            <CreateEntityField id={i} />,
-            <button id={i} onClick={() => {
-              console.log(this.id)
+            <CreateEntityField key={`create_${i}`} id={i} />,
+            <button key={`delete_button_${i}`} id={i} onClick={() => {
+              console.log(i)
+              console.log(components)
               //delete
-              // const newComponents = Object.assign([], components);
-              // newComponents.splice(i, 1);
-              // setComponents(newComponents);
+              const newComponents = Object.assign([], components);
+              newComponents.splice(i, 1);
+              setComponents(newComponents);
 
             }}>X</button>
           ]

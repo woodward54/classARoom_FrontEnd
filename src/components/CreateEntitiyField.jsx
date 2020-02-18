@@ -41,6 +41,7 @@ export const CreateEntityField = () => {
       <div className="create-entity-field__type">
 
         {/* <div>{JSON.stringify(state)}</div> */}
+        <ColorPicker />
 
         <div className="select">
           <Select
@@ -94,7 +95,7 @@ export const CreateEntityField = () => {
         <textarea className="create-entity-field__editor-textarea"></textarea>
       </div>
 
-      <ColorPicker />
+      
     </div>
   )
 }
