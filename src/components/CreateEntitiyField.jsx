@@ -40,11 +40,6 @@ export const CreateEntityField = () => {
       <div className="create-entity-field__type">
 
         {/* <div>{JSON.stringify(state)}</div> */}
-        <div className="color-picker-palette">
-          <ColorPicker />
-        </div>
-        
-
         <div className="select">
           <Select
             value={state.label}
@@ -52,9 +47,12 @@ export const CreateEntityField = () => {
             options={options}
           />
         </div>
-
-
       </div>
+
+      <div className="color-picker-palette">
+          <ColorPicker />
+      </div>
+
       {state.type === 'sphere' && <div className="create-entity-field__editor">
         <div className="wrapper-1-param">
           <div className="center-col">Radius:</div> 

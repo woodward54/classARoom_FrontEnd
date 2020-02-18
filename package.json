@@ -13,8 +13,11 @@
     "parcel-bundler": "^1.12.4"
   },
   "dependencies": {
+    "bootstrap": "^4.4.1",
+    "node-sass": "^4.13.1",
     "react": "^16.12.0",
     "react-aframe-ar": "^1.18.0",
+    "react-bootstrap": "^1.0.0-beta.16",
     "react-color": "^2.18.0",
     "react-color-picker-text": "1.0.7",
     "react-dom": "^16.12.0",
