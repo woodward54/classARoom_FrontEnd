@@ -47,7 +47,7 @@ class CreateEntityField extends React.Component {
         </div>
 
         <div className="color-picker-palette">
-          <ColorPicker />
+          <ColorPicker onChange={hex => this.updateState({ color: hex })} />
         </div>
 
         {this.props.component.type === 'sphere' && <div className="create-entity-field__editor">
