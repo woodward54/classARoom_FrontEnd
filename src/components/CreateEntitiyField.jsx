@@ -1,120 +1,124 @@
-import React, { Component } from "react";
+import React from "react";
+import { connect } from "react-redux";
+import Button from 'react-bootstrap/Button';
 import { useInput } from './hooks/input-hook';
-import Select from 'react-select'
-import reactCSS from 'reactcss'
-import ColorPicker from './ColorPicker'
+import Select from 'react-select';
+import ColorPicker from './ColorPicker';
 
-
-const onChange = (state) => {
-  state => {
-    const newComponents = Object.assign([], components);
-    newComponents.splice(i, 1, state);
-    setComponents(newComponents);
-  }
-}
-
-export const CreateEntityField = () => {
-
-  const [state, setState] = React.useState({});
-
-  const { value:boxWidth, bind:bindBoxWidth } = useInput('');
-  const { value:textArea, bind:bindTextArea } = useInput('');
-
-  const options = [
-    { value: 'sphere', label: 'Sphere' },
-    { value: 'cylinder', label: 'Cylinder' },
-    { value: 'box', label: 'Box' },
-    { value: 'plane', label: 'Plane' },
-    { value: 'cone', label: 'Cone' },
-  ]
-
+class CreateEntityField extends React.Component {
   // pickup here - add all colors in one dropdown
 
-  const updateState = (s) => {
+  updateState(s) {
     const newState = {
-      ...state,
+      ...this.props.component,
       ...s,
     };
-    setState(newState);
-    onChange(newState);
+    this.props.updateComponent(this.props.identifier, newState);
   }
 
-  const handleChange = (event) => {
-    evt.preventDefault();
-    console.log(`Submitting Name ${boxWidth} ${textArea}`);
-  }
+  render() {
+    const handleChange = (event) => {
+      evt.preventDefault();
+      console.log(`Submitting Name ${boxWidth} ${textArea}`);
+    }
 
-  // const handleChange = (event) => {
-  //   setState({value: event.target.value});
-  //   console.log(event.target.value)
-  // }
+    const options = [
+      { value: 'sphere', label: 'Sphere' },
+      { value: 'cylinder', label: 'Cylinder' },
+      { value: 'box', label: 'Box' },
+      { value: 'plane', label: 'Plane' },
+      { value: 'cone', label: 'Cone' },
+    ]
 
-  return (
-    <div className="create-entity-field">
-      <div className="create-entity-field__type">
+    console.log("COMPONENT: ", this.props.component.type);
+    return (
+      <div className="create-entity-field" id={`id_${this.props.identifier}`}>
+        <div className="create-entity-field__type">
 
-        {/* <div>{JSON.stringify(state)}</div> */}
-        <div className="select">
-          <Select
-            value={state.label}
-            onChange={value => updateState({ type: value.value })}
-            options={options}
-          />
+          {/* <div>{JSON.stringify(state)}</div> */}
+          <div className="select">
+            <Select
+              ref={this.ref}
+              value={this.props.component.type}
+              onChange={value => this.updateState({ type: value.value })}
+              options={options}
+            />
+          </div>
         </div>
-      </div>
 
-      <div className="color-picker-palette">
+        <div className="color-picker-palette">
           <ColorPicker />
-      </div>
-
-      {state.type === 'sphere' && <div className="create-entity-field__editor">
-        <div className="wrapper-1-param">
-          <div className="center-col">Radius:</div> 
-          <div className="center-col"><input type="text"/></div>
-          {/* <input type="text" value={state.value} onChange= /> */}
         </div>
-        {/* <textarea className="create-entity-field__editor-textarea" onChange={(event) => updateState({ radius: event.target.value })}></textarea> */}
-      </div>}
 
-      {state.type === 'cylinder' && <div className="create-entity-field__editor">
-        <div className="wrapper-1-param">
-            <div className="center-col">Radius: </div> 
-            <div className="center-col, col2"><input type="text"/></div>
+        {this.props.component.type === 'sphere' && <div className="create-entity-field__editor">
+          <div className="wrapper-1-param">
+            <div className="center-col">Radius:</div>
+            <div className="center-col"><input type="text" onChange={(event) => this.updateState({ radius: event.target.value })} /></div>
+            {/* <input type="text" value={props.component.value} onChange= /> */}
+          </div>
+          {/* <textarea className="create-entity-field__editor-textarea" onChange={(event) => updateState({ radius: event.target.value })}></textarea> */}
+        </div>}
+
+        {this.props.component.type === 'cylinder' && <div className="create-entity-field__editor">
+          <div className="wrapper-1-param">
+            <div className="center-col">Radius: </div>
+            <div className="center-col, col2"><input type="text" /></div>
 
             <div className="center-col, row2">Height: </div>
-            <div className="center-col, row2, col2"><input type="text"/></div>
+            <div className="center-col, row2, col2"><input type="text" /></div>
 
-          {/* <input type="text" value={state.value} onChange= /> */}
-        </div>
-        {/* <textarea className="create-entity-field__editor-textarea" onChange={(event) => updateState({ radius: event.target.value })}></textarea> */}
-      </div>}
+            {/* <input type="text" value={props.component.value} onChange= /> */}
+          </div>
+          {/* <textarea className="create-entity-field__editor-textarea" onChange={(event) => updateState({ radius: event.target.value })}></textarea> */}
+        </div>}
 
-      {state.type === 'box' && <div className="create-entity-field__editor">
-        <div className="wrapper-1-param">
-            <div className="center-col">Length: </div> 
-            <div className="center-col col2"><input type="text"/></div>
+        {this.props.component.type === 'box' && <div className="create-entity-field__editor">
+          <div className="wrapper-1-param">
+            <div className="center-col">Length: </div>
+            <div className="center-col col2"><input type="text" /></div>
 
             <div className="center-col, row2">Height: </div>
-            <div className="center-col, row2, col2"><input type="text"/></div>
+            <div className="center-col, row2, col2"><input type="text" /></div>
 
             <div className="center-col, row3">Width: </div>
-            <div className="center-col, row3, col2"><input type="text" onChange={handleChange} {...bindBoxWidth}/></div>
+            <div className="center-col, row3, col2"><input type="text" /></div>
 
-          {/* <input type="text" value={state.value} onChange= /> */}
+            {/* <input type="text" value={props.component.value} onChange= /> */}
+          </div>
+          {/* <textarea className="create-entity-field__editor-textarea" onChange={(event) => updateState({ radius: event.target.value })}></textarea> */}
+        </div>}
+
+        <div className="create-entity-field__editor">
+          <textarea
+            className="create-entity-field__editor-textarea"
+            onChange={handleChange}
+            // {...bindTextArea}
+          />
         </div>
-        {/* <textarea className="create-entity-field__editor-textarea" onChange={(event) => updateState({ radius: event.target.value })}></textarea> */}
-      </div>}
 
-      <div className="create-entity-field__editor">
-        <textarea 
-        className="create-entity-field__editor-textarea"
-        onChange={handleChange} 
-        {...bindTextArea}
-        />
+        <div className="kill-button">
+          <Button variant="outline-danger" onClick={() => this.props.deleteComponent(this.props.identifier)}>X</Button>
+        </div>
       </div>
-
-      
-    </div>
-  )
+    )
+  }
 }
 
+const mapStateToProps = (_, ownProps) => {
+  console.log("ownProps: ", ownProps);
+  return ownProps;
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteComponent: (key) => dispatch({
+      type: "DELETE_COMPONENT",
+      payload: { key },
+    }),
+    updateComponent: (key, component) => dispatch({
+      type: "UPDATE_COMPONENT",
+      payload: { key, component },
+    })
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateEntityField);
