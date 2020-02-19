@@ -34,7 +34,7 @@
   
   /* display: grid; */
   display: grid;
-  grid-template-columns: 200px 100px 400px 1fr;
+  grid-template-columns: 1fr 0.3fr 1fr 4fr 0.5fr;
   align-items: center;
 }
 .create-entity-field__editor {
@@ -51,6 +51,7 @@
   height: 125px;
   font-family:"Times New Roman", Times, serif;  
   font-size: 15px;
+  resize: none;
 }
 
 .select {
@@ -67,7 +68,7 @@
 
 .wrapper-1-param {
   display: grid;
-  grid-template-columns: 180px 180px;
+  grid-template-columns: 1.5fr 0.1fr;
   grid-gap: 5px;
   align-items: center;
   grid-column: 3;
@@ -90,6 +91,7 @@
 
 .col2 {
   grid-column: 2;
+  padding-left: 10px;
 }
 
 .center-col {
@@ -107,6 +109,5 @@
 
 .Button-danger-wrapper {
   position: relative;
-  top: 35%;
   left: 35%;
 }

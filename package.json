@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.4.1",
+    "fs": "0.0.1-security",
     "node-sass": "^4.13.1",
     "react": "^16.12.0",
     "react-aframe-ar": "^1.18.0",
@@ -27,6 +28,8 @@
     "react-select": "^3.0.8",
     "reactcss": "^1.2.3",
     "redux": "^4.0.5",
-    "sass": "^1.25.0"
+    "sass": "^1.25.0",
+    "write": "^2.0.0",
+    "write-file-p": "^1.0.7"
   }
 }

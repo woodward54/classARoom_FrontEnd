@@ -13,17 +13,17 @@ export default (state = initialState, action) => {
         },
       }
     case "DELETE_COMPONENT":
-      console.log("action: ", action);
+      //console.log("action: ", action);
       const components = Object.assign({}, state.components);
-      console.log("components: ", components);
+      //console.log("components: ", components);
       delete components[action.payload.key];
-      console.log("components: ", components);
+      //console.log("components: ", components);
       return {
         ...state,
         components,
       };
     case "UPDATE_COMPONENT":
-      console.log("action: ", action);
+      //console.log("action: ", action);
       return {
         ...state,
         components: {
