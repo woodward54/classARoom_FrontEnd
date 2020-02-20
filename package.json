@@ -14,8 +14,12 @@
     "redux-devtools-extension": "^2.13.8"
   },
   "dependencies": {
+    "aws-sdk": "^2.622.0",
     "bootstrap": "^4.4.1",
-    "fs": "0.0.1-security",
+    "browserify-fs": "^1.0.0",
+    "firebase-admin": "^8.9.2",
+    "fs": "^0.0.1-security",
+    "heroku": "^7.38.2",
     "node-sass": "^4.13.1",
     "react": "^16.12.0",
     "react-aframe-ar": "^1.18.0",
@@ -30,6 +34,7 @@
     "redux": "^4.0.5",
     "sass": "^1.25.0",
     "write": "^2.0.0",
-    "write-file-p": "^1.0.7"
+    "write-file-p": "^1.0.7",
+    "ws": "^7.2.1"
   }
 }

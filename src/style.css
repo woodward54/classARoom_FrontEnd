@@ -24,11 +24,11 @@
   /* height: 50px; */
 }
 
-.component-wrapper {
+/*.component-wrapper {
   height: 150px;
   grid-template-columns: 1fr 100px;
   display: grid;
-}
+}*/
 
 .create-entity-field {
   
