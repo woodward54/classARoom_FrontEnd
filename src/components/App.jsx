@@ -13,8 +13,8 @@ const s3 = new AWS.S3({
     //accessKeyId: process.env.AWS_ACCESS_KEY, 
     //secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
     // Remove keys on git push
-    accessKeyId: '',
-    secretAccessKey: '',
+    accessKeyId: 'AKIAIT7ZONAGZPSHLFOA',
+    secretAccessKey: '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',
     region: 'us-east-2'
 });
 
@@ -35,7 +35,7 @@ const uploadFile = (uploadString) => {
   //console.log(s3)
   const params = {
       Bucket: 'classaroom', // pass your bucket name
-      Key: 'team1.txt', // file will be saved as classaroom/team1.txt
+      Key: 'team1.html', // file will be saved as classaroom/team1.txt
       Body: uploadString
   };
   s3.upload(params, function(s3Err, data) {
@@ -130,6 +130,7 @@ const buildARApp = (temp) => {
     buildString += '\n';
   });
 
+  //buildString += "<a-marker-camera preset='kanji'></a-marker-camera>\n";
   console.log(buildString)
 
   //process.cwd()
