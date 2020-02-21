@@ -8,13 +8,14 @@ import { connect } from 'react-redux';
 const ReactDOMServer = require('react-dom/server');
 
 //const fs = require('fs');
+require('dotenv').config();
 const AWS = require('aws-sdk');
 const s3 = new AWS.S3({
     //accessKeyId: process.env.AWS_ACCESS_KEY, 
     //secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
     // Remove keys on git push
-    accessKeyId: '',
-    secretAccessKey: '',
+    accessKeyId: process.env.AWSAccessKeyId,
+    secretAccessKey: process.env.AWSSecretKey,
     region: 'us-east-2'
 });
 
@@ -34,8 +35,8 @@ const uploadFile = (uploadString) => {
   //console.log(uploadString)
   //console.log(s3)
   const params = {
-      Bucket: 'classaroom', // pass your bucket name
-      Key: 'team1.html', // file will be saved as classaroom/team1.txt
+      Bucket: process.env.bucket, // pass your bucket name
+      Key: 'team1.html', // file will be saved as process.env.bucket/team1.txt
       Body: uploadString
   };
   s3.upload(params, function(s3Err, data) {
