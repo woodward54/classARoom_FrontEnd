@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "asdf",
+  "homepage": "https://instar.productions/dist",
   "license": "MIT",
   "scripts": {
     "dev": "parcel src/index.html",
