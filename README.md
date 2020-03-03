@@ -10,7 +10,7 @@ A-Frame front end. The users comonents will be displayed on a printed out image 
 
 ![Components Editor](/images/classARoom.PNG)
 
-![Components Editor](/images/IMG_5601.jpg  | height=100)
+![Components Editor](/images/IMG_5601.jpg =100x)
 
 ![Components Editor](/images/IMG_5605.jpg)
 
