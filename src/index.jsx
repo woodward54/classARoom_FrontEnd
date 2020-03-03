@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom'
 import './style.css'
 import App from './components/App'
 import reducer, { initialState } from './reducers';
-//import { composeWithDevTools } from 'redux-devtools-extension';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 // const store = createStore(reducer, initialState);
 const store = createStore(reducer, composeWithDevTools());

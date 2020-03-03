@@ -35,8 +35,8 @@ const uploadFile = (uploadString) => {
   //console.log(uploadString)
   //console.log(s3)
   const params = {
-      Bucket: process.env.bucket, // pass your bucket name
-      Key: 'team1.html', // file will be saved as process.env.bucket/team1.txt
+      Bucket: process.env.Bucket, // pass your bucket name
+      Key: process.env.TEAM + '.html', // file will be saved as process.env.bucket/team1.txt
       Body: uploadString
   };
   s3.upload(params, function(s3Err, data) {
@@ -142,7 +142,7 @@ const App = (props) => {
   return (
     <div className="app">
       <header className="app__header">
-        Header
+        <p className="header_text">{process.env.TEAM}</p>
       </header>
       <main className="app__main">
         {Object.keys(props.components).map((key) => {
