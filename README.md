@@ -10,6 +10,8 @@ A-Frame front end. The users comonents will be displayed on a printed out image 
 
 ![Components Editor](/images/classARoom.PNG)
 
+# AR Web App
+
 ![Components Editor](/images/IMG_5601.jpg)
 
 ![Components Editor](/images/IMG_5605.jpg)
