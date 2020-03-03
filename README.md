@@ -8,5 +8,10 @@ A-Frame front end. The users comonents will be displayed on a printed out image 
 
 # Front End Components Editor
 
-![Components Editor](/images/classARoom.png)
-Format: ![Alt Text](url)
+![Components Editor](/images/classARoom.PNG)
+
+![Components Editor](/images/IMG_5601.jpg =100x20)
+
+![Components Editor](/images/IMG_5605.jpg)
+
+![Components Editor](/images/IMG_5608.jpg)
